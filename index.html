@@ -1,1 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>매추리 선임 카운터</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="header">
+        <h1>매추리 선임 카운터</h1>
+    </header>
+
+    <!-- 상단 제어 영역 -->
+    <section class="top-panel">
+
+        <div class="company-box">
+            <label for="companySelect">중대 선택</label>
+
+            <select id="companySelect">
+                <option value="1">1중대</option>
+                <option value="2">2중대</option>
+                <option value="3">3중대</option>
+                <option value="4">4중대</option>
+                <option value="5">5중대</option>
+                <option value="6">6중대</option>
+                <option value="7">7중대</option>
+                <option value="8">8중대</option>
+            </select>
+        </div>
+
+        <div class="next-target-box">
+            <span class="label">다음 대상</span>
+            <span id="nextTarget">없음</span>
+        </div>
+
+    </section>
+
+    <!-- 탭 -->
+    <section class="tabs">
+
+        <button class="tab-btn active" data-tab="manage">
+            인원 관리
+        </button>
+
+        <button class="tab-btn" data-tab="history">
+            배정 이력
+        </button>
+
+        <button class="tab-btn" data-tab="stats">
+            통계
+        </button>
+
+    </section>
+
+    <!-- 인원관리 탭 -->
+    <section id="manageTab" class="tab-content active">
+
+        <!-- 일괄 등록 -->
+        <div class="card">
+
+            <h2>인원 일괄 등록</h2>
+
+            <textarea
+                id="bulkInput"
+                placeholder="한 줄에 한 명씩 입력하세요."
+            ></textarea>
+
+            <button id="bulkRegisterBtn">
+                일괄 등록
+            </button>
+
+        </div>
+
+        <!-- 개별 추가 -->
+        <div class="card">
+
+            <h2>인원 추가</h2>
+
+            <input
+                type="text"
+                id="newMemberName"
+                placeholder="이름 입력"
+            >
+
+            <button id="addMemberBtn">
+                추가
+            </button>
+
+        </div>
+
+        <!-- 배정 -->
+        <div class="card">
+
+            <h2>배정</h2>
+
+            <input
+                type="number"
+                id="assignCount"
+                min="1"
+                value="1"
+            >
+
+            <button id="assignBtn">
+                배정 시작
+            </button>
+
+            <button id="shuffleBtn">
+                무작위 배치
+            </button>
+
+        </div>
+
+        <!-- 메인 테이블 -->
+        <div class="table-wrapper">
+
+            <table id="memberTable">
+
+                <thead>
+
+                <tr>
+                    <th>상태</th>
+                    <th>이름</th>
+                    <th>경고권</th>
+                    <th>패스권</th>
+                    <th>참여여부</th>
+                    <th>메모</th>
+                    <th>수정</th>
+                    <th>삭제</th>
+                </tr>
+
+                </thead>
+
+                <tbody id="memberTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- 배정 이력 탭 -->
+    <section id="historyTab" class="tab-content">
+
+        <div class="card">
+
+            <h2>배정 이력</h2>
+
+            <div class="history-search">
+
+                <input
+                    type="text"
+                    id="historyNameSearch"
+                    placeholder="이름 검색"
+                >
+
+                <input
+                    type="date"
+                    id="historyStartDate"
+                >
+
+                <input
+                    type="date"
+                    id="historyEndDate"
+                >
+
+                <button id="historySearchBtn">
+                    조회
+                </button>
+
+            </div>
+
+            <div id="historyList">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- 통계 탭 -->
+    <section id="statsTab" class="tab-content">
+
+        <div class="card">
+
+            <h2>통계</h2>
+
+            <div class="stats-filters">
+
+                <button class="quick-filter" data-range="today">
+                    오늘
+                </button>
+
+                <button class="quick-filter" data-range="7">
+                    최근 7일
+                </button>
+
+                <button class="quick-filter" data-range="30">
+                    최근 30일
+                </button>
+
+                <button class="quick-filter" data-range="month">
+                    이번 달
+                </button>
+
+                <button class="quick-filter" data-range="all">
+                    전체
+                </button>
+
+            </div>
+
+            <div class="stats-date-range">
+
+                <input
+                    type="date"
+                    id="statsStartDate"
+                >
+
+                <input
+                    type="date"
+                    id="statsEndDate"
+                >
+
+                <button id="statsSearchBtn">
+                    조회
+                </button>
+
+            </div>
+
+            <div class="stats-search">
+
+                <input
+                    type="text"
+                    id="memberStatsSearch"
+                    placeholder="이름 검색"
+                >
+
+                <button id="memberStatsBtn">
+                    검색
+                </button>
+
+            </div>
+
+            <div id="statsSummary">
+
+            </div>
+
+            <div id="statsTable">
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
