@@ -6,7 +6,7 @@
 
 body{
     background:#f4f6f9;
-    font-family:"Malgun Gothic", sans-serif;
+    font-family:"맑은 고딕",sans-serif;
     color:#222;
 }
 
@@ -16,11 +16,11 @@ body{
     margin:20px auto;
 }
 
-.header{
+header{
     margin-bottom:20px;
 }
 
-.header h1{
+header h1{
     text-align:center;
     font-size:32px;
 }
@@ -60,14 +60,14 @@ body{
     text-align:center;
 }
 
-.next-target-box .label{
+.next-target-box .title{
     font-weight:bold;
-    margin-right:10px;
+    margin-bottom:8px;
 }
 
-#nextTarget{
+#currentTarget{
+    font-size:22px;
     color:#0d6efd;
-    font-size:20px;
     font-weight:bold;
 }
 
@@ -79,10 +79,10 @@ body{
 
 .tab-btn{
     border:none;
-    background:#dee2e6;
     padding:12px 24px;
     border-radius:8px;
     cursor:pointer;
+    background:#dee2e6;
     font-size:15px;
 }
 
@@ -116,7 +116,6 @@ textarea{
     min-height:180px;
     resize:vertical;
     padding:10px;
-    margin-bottom:10px;
 }
 
 input,
@@ -127,27 +126,23 @@ select{
 }
 
 button{
-    padding:10px 15px;
+    padding:10px 14px;
     border:none;
     border-radius:6px;
     cursor:pointer;
+}
+
+#addMemberBtn,
+#bulkAddBtn,
+#assignBtn,
+#shuffleBtn,
+#historySearchBtn,
+#statsSearchBtn{
     background:#0d6efd;
     color:white;
 }
 
-button:hover{
-    opacity:0.9;
-}
-
-#newMemberName{
-    width:300px;
-}
-
-#assignCount{
-    width:120px;
-}
-
-.table-wrapper{
+.table-container{
     overflow-x:auto;
 }
 
@@ -162,26 +157,26 @@ thead{
 }
 
 th{
-    padding:14px;
-    border:1px solid #dcdcdc;
+    border:1px solid #ddd;
+    padding:12px;
     white-space:nowrap;
 }
 
 td{
-    padding:12px;
-    border:1px solid #dcdcdc;
+    border:1px solid #ddd;
+    padding:10px;
     text-align:center;
 }
 
 tbody tr:nth-child(odd){
-    background:#ffffff;
+    background:white;
 }
 
 tbody tr:nth-child(even){
-    background:#f7f8fa;
+    background:#f8f9fb;
 }
 
-/* 상태별 강조 */
+/* 상태 색상 */
 
 .status-pending{
     background:#fff3cd !important;
@@ -195,75 +190,43 @@ tbody tr:nth-child(even){
     background:#f8d7da !important;
 }
 
-/* 아이콘 영역 */
-
-.status-icon{
-    font-size:22px;
-}
-
 /* 경고권 */
 
-.warning-badge{
+.warning{
     color:#ff9800;
-    font-size:18px;
+    font-weight:bold;
 }
 
 /* 패스권 */
 
-.pass-badge{
+.pass{
     color:#dc3545;
-    font-size:18px;
+    font-weight:bold;
 }
 
-/* 통계 */
+/* 필터 */
 
-.stats-filters{
+.filter-row{
     display:flex;
+    gap:10px;
     flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:15px;
-}
-
-.stats-date-range{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:15px;
-}
-
-.stats-search{
-    display:flex;
-    gap:10px;
-    margin-bottom:15px;
-}
-
-#statsSummary{
-    margin-top:20px;
-}
-
-#statsTable{
-    margin-top:20px;
-}
-
-/* 이력 */
-
-.history-search{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
     margin-bottom:20px;
 }
 
 #historyList{
     display:flex;
     flex-direction:column;
-    gap:12px;
+    gap:10px;
 }
 
-.history-card{
+.history-item{
     background:#f8f9fa;
     border-left:5px solid #0d6efd;
-    padding:15px;
+    padding:12px;
+}
+
+#statsArea{
+    margin-top:20px;
 }
 
 /* 모바일 */
@@ -279,14 +242,8 @@ tbody tr:nth-child(even){
         flex-wrap:wrap;
     }
 
-    .stats-date-range,
-    .stats-search,
-    .history-search{
+    .filter-row{
         flex-direction:column;
-    }
-
-    #newMemberName{
-        width:100%;
     }
 
 }
